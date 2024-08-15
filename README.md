@@ -2,13 +2,16 @@
 
 
 # planned for v1
-- [ ] sprite manager
-- [ ] level manager
-- [ ] monaco editor
-- [ ] **export project for sprig**
+- [ ] ability to play project
+- [ ] monaco code editor
+- [ ] export project for sprig
+- [ ] docs site
+- [ ] typescript support (esbuild prob)
 
 
 # planned for v2
-- [ ] typescript support (esbuild prob)
-- [ ] build project as a standalone `.html` file (maybe vite?)
+- [ ] sprite manager
+- [ ] level manager
+- [ ] build project as a standalone `.html` file
 - [ ] run on device
+- [ ] downloadable version
