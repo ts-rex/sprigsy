@@ -1,3 +1,7 @@
+/**
+ * normal sprig api
+ * this is provided because your project type is 
+ */
 declare namespace sprig {
     export declare const VALID_INPUTS: readonly ["w", "s", "a", "d", "i", "j", "k", "l"];
     export type InputKey = typeof VALID_INPUTS[number];

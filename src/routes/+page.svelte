@@ -1,8 +1,8 @@
 <script>
-	import Editor from "$lib/Editor.svelte";
+	import CodeEditor from "$lib/CodeEditor.svelte";
 
 </script>
 <div class="">
-	<Editor />
+	<CodeEditor />
 
 </div>

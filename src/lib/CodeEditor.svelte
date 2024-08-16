@@ -32,7 +32,6 @@
 			}
 		};
 
-		// Function to add global types
 		async function addGlobalTypes() {
 			const sprigTypeDef = (await import('./editorcontext/sprig.d.ts?raw')).default;
 			monaco.languages.typescript.typescriptDefaults.addExtraLib(
@@ -42,7 +41,7 @@
 			const globalTypeDef = (await import('./editorcontext/global.d.ts?raw')).default;
 			monaco.languages.typescript.typescriptDefaults.addExtraLib(
 				globalTypeDef,
-				'context/global.d.ts'
+				'global.d.ts'
 			);
 
 			// IMPLEMENT ONCE v2 IS DONE!
@@ -94,10 +93,10 @@
 			});
 		});
 
-		// Function to set up the editor
 		function setupEditor() {
 			editor = monaco.editor.create(editorContainer, {
-				value: `function game(api: sprig.FullSprigAPI): void {
+				value:
+`function game(api: sprig.FullSprigAPI): void {
 	${code}
 }`,
 				language: 'typescript',
@@ -107,57 +106,6 @@
 			});
 
 			const model = editor.getModel()!;
-			// Mark function declaration and closing brace as read-only
-			// editor.createDecorationsCollection(
-			// 	[
-			// 		{
-			// 			range: new monaco.Range(1, 1, 1, 28),
-			// 			options: {
-			// 				className: 'read-only',
-			// 				isWholeLine: true
-			// 			}
-			// 		},
-			// 		{
-			// 			range: new monaco.Range(
-			// 				model.getLineCount(),
-			// 				1,
-			// 				model.getLineCount(),
-			// 				model.getLineMaxColumn(model.getLineCount())
-			// 			),
-			// 			options: {
-			// 				className: 'read-only',
-			// 				isWholeLine: true
-			// 			}
-			// 		}
-			// 	]
-			// );
-
-			// Disable editing in read-only regions
-			// editor.onDidChangeModelContent((event) => {
-			// 	event.changes.forEach((change) => {
-			// 		const { range } = change;
-
-			// 		if (
-			// 			(range.startLineNumber === 1 && range.endLineNumber === 1) ||
-			// 			(range.startLineNumber === model.getLineCount() &&
-			// 				range.endLineNumber === model.getLineCount())
-			// 		) {
-			// 			editor.executeEdits('revert-read-only', [
-			// 				{
-			// 					range: new monaco.Range(
-			// 						range.startLineNumber,
-			// 						range.startColumn,
-			// 						range.endLineNumber,
-			// 						range.endColumn
-			// 					),
-			// 					text: '',
-			// 					forceMoveMarkers: true
-			// 				}
-			// 			]);
-			// 		}
-			// 	});
-			// });
-
 			const constrainedInstance = constrainedEditor(monaco);
 			constrainedInstance.initializeIn(editor);
 			constrainedInstance.addRestrictionsTo(model, [

@@ -1,6 +1,5 @@
 # Sprigsy editor
 
-
 # planned for v1
 - [ ] ability to play project
 - [ ] monaco code editor
