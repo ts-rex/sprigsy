@@ -5,7 +5,7 @@
 	import {} from 'sprig/web';
 	import { constrainedEditor } from 'constrained-editor-plugin';
 	import { parse } from '@babel/parser';
-	import { buildProject } from './build';
+	import { buildProject } from './build/esbuild';
 
 	let editorContainer: HTMLDivElement;
 	let editor: import('monaco-editor').editor.IStandaloneCodeEditor;
