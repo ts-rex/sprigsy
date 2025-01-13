@@ -1,8 +1,11 @@
 <script>
-	import CodeEditor from '$lib/CodeEditor.svelte';
-	import Tab from '$lib/components/Tab.svelte';
-	let tab = 'code';
-	let code = '';
+	import CodeEditor from '$lib/CodeEditor.svelte'
+	import Tab from '$lib/components/Tab.svelte'
+	let tab = 'code'
+	let code = ''
+	function keypress() {
+		debugger;
+	}
 </script>
 
 <div class="flex h-full! w-full select-none flex-col bg-base-100">
@@ -56,3 +59,5 @@
 		This will have the game screen
 	{/if}
 </div>
+
+<svelte:window on:keypress={keypress}></svelte:window>
