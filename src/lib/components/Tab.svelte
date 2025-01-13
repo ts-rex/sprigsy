@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Snippet } from 'svelte';
+	import type { Snippet } from 'svelte'
 
 	let {
 		tab = $bindable(),
@@ -7,17 +7,17 @@
 		map,
 		...props
 	}: {
-		tab: string | undefined;
-		disabled?: boolean;
-		map?: Record<string, string>;
-		class?: string;
-		[x: `_${string}`]: Snippet<[]>;
-	} = $props();
+		tab: string | undefined
+		disabled?: boolean
+		map?: Record<string, string>
+		class?: string
+		[x: `_${string}`]: Snippet<[]>
+	} = $props()
 	const tabs = Object.fromEntries(
 		Object.entries(props)
 			.filter((v) => v[0].startsWith('_'))
 			.map(([name, snippet]): [string, Snippet<[]>] => [name.replace('_', ''), snippet])
-	);
+	)
 </script>
 
 <div role="tablist" class="tabs tabs-boxed {props.class}">
